@@ -1,4 +1,4 @@
-# Hugo Tailwind v3.1.8 Boilerplate (includes SCSS support)
+# Hugo Tailwind v3.1.8 Boilerplate (includes SASS/SCSS support via `assets/scss`)
 
 ## Install dependencies
 
