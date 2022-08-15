@@ -1,12 +1,12 @@
 # Hugo Tailwind v3.1.8 Boilerplate
 
-## Development Server
-
-Install dependencies
+## Install dependencies
 
 ```
 npm install
 ```
+
+## Development Server
 
 ```
 npm run dev
