@@ -2,6 +2,12 @@
 
 ## Development Server
 
+Install dependencies
+
+```
+npm install
+```
+
 ```
 npm run dev
 ```
