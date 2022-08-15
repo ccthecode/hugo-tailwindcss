@@ -1,0 +1,20 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{- $inServerMode := site.IsServer }}
+    {{- $sass := "scss/main.sass" }}
+    {{- $cssTarget := "css/main.css" }}
+    {{- $cssOpts := cond ($inServerMode) (dict "targetPath" $cssTarget "enableSourceMap" true) (dict "targetPath"
+    $cssTarget "outputStyle" "compressed") }}
+    {{- $tailwind := resources.Get "css/output.css"}}
+    {{- if $inServerMode }}
+    {{- $css := resources.Get $sass | toCSS $cssOpts | minify}}
+    {{ $bundleCSS := slice $css $tailwind | resources.Concat "css/bundle.min.css"}}
+    <link rel="stylesheet" href="{{$bundleCSS.Permalink}}">
+    {{- else }}
+    {{- $css := resources.Get $sass | toCSS $cssOpts | minify | fingerprint }}
+    {{ $bundleCSS := slice $css $tailwind | resources.Concat "css/bundle.min.css"}}
+    <link rel="stylesheet" href="{{$bundleCSS.Permalink}}">
+    {{- end }}
+    <title>{{if $.Params.title}}{{$.Params.Title}}{{else}}{{site.Title}}{{end}}</title>
+</head>
