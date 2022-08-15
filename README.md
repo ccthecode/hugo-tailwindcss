@@ -11,3 +11,10 @@ npm run dev
 ```
 npm build
 ```
+
+### For Card Example using Tailwind
+
+Visit: `http://localhost:1313/cards/`
+
+Layout: `layouts/partials/cards.html`
+Cards are rendered using a Modular setup, pulls data from `content/cards/_index.md`
